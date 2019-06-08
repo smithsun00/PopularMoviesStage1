@@ -1,0 +1,6 @@
+
+	PopularMives01
+	Instruction
+	
+	1. Please replace 'API_KEY' in NetworkUtils with your own public API key.
+		This can be received when registering at https://www.themoviedb.org/.
