@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">PopularMovies01</string>
+
+    <string name="label_show_movies_by">Show Movies By</string>
+
+    <string name="error_message_no_connection">No internet connection found.
+        Please make sure you are connected to the internet and try again.</string>
+
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
+
+    <string-array name="action_get_movie_by">
+        <item>Popular</item>
+        <item>Top Rated</item>
+    </string-array>
+
+    <!--Movie Details Activity-->
+    <string name="label_user_rating">User Rating</string>
+    <string name="label_release_date">Release Data</string>
+    <string name="label_overview">Plot Synopsis</string>
+
+    <string name="poster_iv_content_description">This image is a poster for the movie titled </string>
+
+    <!--Error messages-->
+    <string name="index_out_of_range">Error: Movie index out of range</string>
+    <string name="movie_data_missing">Error: Movie data is missing</string>
+</resources>
