@@ -1,27 +1,53 @@
 <resources>
-    <string name="app_name">PopularMovies01</string>
+    <!-- Activity Header Names -->
+    <string name="app_name">Pop Movies</string>
+    <string name="movie_details_activity_label">Movie Details</string>
 
-    <string name="label_show_movies_by">Show Movies By</string>
-
-    <string name="error_message_no_connection">No internet connection found.
-        Please make sure you are connected to the internet and try again.</string>
-
+    <!-- Movie List Types -->
     <string name="popular">Popular</string>
     <string name="top_rated">Top Rated</string>
+    <string name="favorite">Favorite</string>
 
     <string-array name="action_get_movie_by">
         <item>Popular</item>
         <item>Top Rated</item>
+        <item>Favorite</item>
     </string-array>
 
     <!--Movie Details Activity-->
     <string name="label_user_rating">User Rating</string>
     <string name="label_release_date">Release Data</string>
-    <string name="label_overview">Plot Synopsis</string>
 
     <string name="poster_iv_content_description">This image is a poster for the movie titled </string>
 
-    <!--Error messages-->
+    <!--Error Messages-->
     <string name="index_out_of_range">Error: Movie index out of range</string>
     <string name="movie_data_missing">Error: Movie data is missing</string>
+    <string name="offline_mode_message">No internet connection.\nRunning in offline mode</string>
+    <string name="offline_mode_menu_items_blocked_message">Only Sort by Favorite list type is available in Offline mode</string>
+    <string name="empty_visible_favorite_movies_list">Favorite movie list is empty.\nPlease add more movies from the Popular or Top Rated movie lists</string>
+    <string name="error_message_no_connection">No internet connection found.
+        Please make sure you are connected to the internet and try again.</string>
+
+    <!-- Menu Item Titles -->
+    <string name="mi_sort_by">Sort</string>
+    <string name="mi_add_to_favorite_title">Save</string>
+
+    <!-- Database Updated Message -->
+    <string name="message_movie_added_to_db">This Movie was added to your favorite movie list.</string>
+    <string name="message_movie_removed_from_db">This Movie was removed from your favorite movie list.</string>
+
+    <!-- TextView Text -->
+    <string name="movie_details_title_placeholder">Some Movie</string>
+    <string name="movie_details_synopsis_placeholder">When one of children is gone missing, a policeman finds he must cooperate with his worst enemy
+                                                      to unveil what seems to be a government cover up of a political corruption.</string>
+    <string name="movie_details_trailers_label">Trailers</string>
+    <string name="movie_details_reviews_label">Reviews</string>
+    <string name="trailer_layout_label_placeholder">Trailer 1</string>
+    <string name="review_author_placeholder">An expert</string>
+    <string name="review_content_placeholder">A lovely movie, very dramatic, good acting and such...</string>
+
+    <!-- Content Providers -->
+    <string name="trailer_image_content_provider">A logo button of a trailer that leads to playing it on a youtube or a browser app</string>
+
 </resources>

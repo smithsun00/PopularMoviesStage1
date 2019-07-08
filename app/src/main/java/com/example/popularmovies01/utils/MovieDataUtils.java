@@ -6,30 +6,44 @@ import java.util.ArrayList;
 
 public class MovieDataUtils {
 
+    public static boolean IsOfflineMode = false;
+
+    private static MovieDataUtils instance;
+
     private static ArrayList<MovieData> MovieDataList;
 
-
-    public static void SetMovieDataList(ArrayList<MovieData> movieData)
+    public static MovieDataUtils getInstance()
     {
+        if(instance == null)
+        {
+            instance = new MovieDataUtils();
+        }
+
+        return instance;
+    }
+
+    public void SetMovieDataList(ArrayList<MovieData> movieData)
+    {
+        if(movieData == null) return;
+
         MovieDataList = null;
         MovieDataList = movieData;
     }
 
-    public static ArrayList<MovieData> GetMovieDataList()
+    public ArrayList<MovieData> GetMovieDataList()
     {
         return MovieDataList;
     }
 
-    public static MovieData GetMovieDataAtPosition(int position)
+    public MovieData GetMovieDataAtPosition(int position)
     {
-        if(position > MovieDataList.size()) return null;
+        if(position >= MovieDataList.size()) return null;
 
         return MovieDataList.get(position);
     }
 
-    public static int GetNumMoviesInDataList()
+    public int GetNumMoviesInDataList()
     {
         return MovieDataList != null ? MovieDataList.size() : 0;
     }
-
 }

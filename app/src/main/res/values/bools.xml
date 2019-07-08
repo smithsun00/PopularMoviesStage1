@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="has_internet">true</bool>
+    <bool name="no_internet">false</bool>
+</resources>

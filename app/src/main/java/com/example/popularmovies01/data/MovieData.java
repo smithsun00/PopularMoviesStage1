@@ -1,77 +1,101 @@
 package com.example.popularmovies01.data;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+@Entity(tableName = "movies")
 public class MovieData implements Parcelable
 {
-    private String mPosterPath;
-    private String mMovieTitle;
-    private String mOverview;
-    private double mUserRating;
-    private String mReleaseDate;
+    @PrimaryKey
+    @ColumnInfo(name = "movie_id")
+    private int movieId;
+    @ColumnInfo(name = "poster_path")
+    private String posterPath;
+    @ColumnInfo(name = "movie_title")
+    private String movieTitle;
+    @ColumnInfo(name = "overview")
+    private String overview;
+    @ColumnInfo(name = "user_rating")
+    private double userRating;
+    @ColumnInfo(name = "release_date")
+    private String releaseDate;
 
     // Constructors
-    public MovieData(String movieTitle, String posterPath, String overview, double userRating, String releaseDate)
+    public MovieData(int movieId, String movieTitle, String posterPath, String overview, double userRating, String releaseDate)
     {
-        mMovieTitle = movieTitle;
-        mPosterPath = posterPath;
-        mOverview = overview;
-        mUserRating = userRating;
-        mReleaseDate = releaseDate;
+        this.movieId = movieId;
+        this.movieTitle = movieTitle;
+        this.posterPath = posterPath;
+        this.overview = overview;
+        this.userRating = userRating;
+        this.releaseDate = releaseDate;
     }
 
+    @Ignore
     private MovieData(Parcel parcel)
     {
-        mMovieTitle = parcel.readString();
-        mPosterPath = parcel.readString();
-        mOverview = parcel.readString();
-        mUserRating = parcel.readDouble();
-        mReleaseDate = parcel.readString();
+        movieId = parcel.readInt();
+        movieTitle = parcel.readString();
+        posterPath = parcel.readString();
+        overview = parcel.readString();
+        userRating = parcel.readDouble();
+        releaseDate = parcel.readString();
     }
 
     // Get methods
-    public String GetPosterPath()
+    public int getMovieId()
     {
-        return mPosterPath != null ? mPosterPath : "NA";
+        return movieId;
     }
 
-    public String GetMovieTitle()
+    public String getPosterPath()
     {
-        return mMovieTitle != null ? mMovieTitle : "NA";
+        return posterPath != null ? posterPath : "NA";
     }
 
-    public String GetOverview()
+    public String getMovieTitle()
     {
-        return mOverview != null ? mOverview : "NA";
+        return movieTitle != null ? movieTitle : "NA";
     }
 
-    public double GetUserRating()
+    public String getOverview()
     {
-        return mUserRating;
+        return overview != null ? overview : "NA";
     }
 
-    public String GetReleaseDate()
+    public double getUserRating()
     {
-        return mReleaseDate != null ? mReleaseDate : "NA";
+        return userRating;
+    }
+
+    public String getReleaseDate()
+    {
+        return releaseDate != null ? releaseDate : "NA";
     }
 
     // Set methods - will be left for C'tor so it cannot be changed after it has been created.
 
+    @Ignore
     @Override
     public int describeContents() {
         return 0;
     }
 
+    @Ignore
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeString(mMovieTitle);
-        parcel.writeString(mPosterPath);
-        parcel.writeString(mOverview);
-        parcel.writeDouble(mUserRating);
-        parcel.writeString(mReleaseDate);
+        parcel.writeString(movieTitle);
+        parcel.writeString(posterPath);
+        parcel.writeString(overview);
+        parcel.writeDouble(userRating);
+        parcel.writeString(releaseDate);
     }
 
+    @Ignore
     public final Parcelable.Creator<MovieData> CREATOR = new Parcelable.Creator<MovieData>(){
 
         @Override

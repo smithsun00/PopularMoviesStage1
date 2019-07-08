@@ -1,128 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlack"
     tools:context=".MovieDetailsActivity">
 
     <ScrollView
+        android:id="@+id/activity_details_sv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <!--Movie Title-->
-        <TextView
-            android:id="@+id/value_movie_title_tv"
-            android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_alignParentTop="true"/>
+            <!--Movie Title-->
+            <TextView
+                android:id="@+id/value_movie_title_tv"
+                tools:text="@string/movie_details_title_placeholder"
+                android:textColor="@color/colorWhite"
+                android:background="@color/textTitleColorBackground"
+                android:textSize="35sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:paddingTop="35dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="30dp"
+                android:paddingBottom="35dp"
+                android:layout_alignParentTop="true"
+                android:paddingEnd="20dp"
+                android:paddingStart="30dp" />
 
-        <!--This View serves as a visual divider between Title to Details to Overview-->
-        <View
-            android:id="@+id/title_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorMediumGray"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_below="@id/value_movie_title_tv"/>
+            <!--Movie Poster, content description is assigned view code
+                as suggested in this article: 'https://www.deque.com/blog/android-imageviews-accessible-content-descriptions/'
+                for use in dynamic imageViews
+                * use of minWidth and minHeight will make sure layout is not collapsed until image is populated-->
+            <ImageView
+                android:id="@+id/details_movie_poster_iv"
+                android:layout_width="120dp"
+                android:layout_height="192dp"
+                android:minWidth="120dp"
+                android:minHeight="192dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/value_movie_title_tv"/>
 
-        <!--Movie Poster, content description is assigned view code
-            as suggested in this article: 'https://www.deque.com/blog/android-imageviews-accessible-content-descriptions/'
-            for use in dynamic imageViews
-            * use of minWidth and minHeight will make sure layout is not collapsed until image is populated-->
-        <ImageView
-            android:id="@+id/details_movie_poster_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="150dp"
-            android:minHeight="240dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_below="@id/title_divider"/>
+            <!--Release Date-->
+            <TextView
+                android:id="@+id/label_release_date_tv"
+                android:text="@string/label_release_date"
+                android:textColor="@color/colorMediumGray"
+                style="@style/BaseMovieDetailsStyle"
+                android:layout_toRightOf="@id/details_movie_poster_iv"
+                android:layout_below="@id/value_movie_title_tv"
+                android:layout_toEndOf="@id/details_movie_poster_iv" />
 
-        <!--Release Date-->
-        <TextView
-            android:id="@+id/label_release_date_tv"
-            android:text="@string/label_release_date"
-            android:textColor="@color/colorMediumGray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_toRightOf="@id/details_movie_poster_iv"
-            android:layout_below="@id/title_divider"/>
+            <TextView
+                android:id="@+id/value_release_date_tv"
+                style="@style/MovieDetailsStyleSmallText"
+                android:layout_toRightOf="@id/label_release_date_tv"
+                android:layout_below="@id/value_movie_title_tv"
+                android:layout_toEndOf="@id/label_release_date_tv" />
 
-        <TextView
-            android:id="@+id/value_release_date_tv"
-            android:textColor="@color/colorWhite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_toRightOf="@id/label_release_date_tv"
-            android:layout_below="@id/title_divider"/>
+            <!--User Rating-->
+            <TextView
+                android:id="@+id/label_user_rating_tv"
+                android:text="@string/label_user_rating"
+                android:textColor="@color/colorMediumGray"
+                style="@style/BaseMovieDetailsStyle"
+                android:layout_toRightOf="@id/details_movie_poster_iv"
+                android:layout_below="@id/label_release_date_tv"
+                android:layout_toEndOf="@id/details_movie_poster_iv" />
 
-        <!--User Rating-->
-        <TextView
-            android:id="@+id/label_user_rating_tv"
-            android:text="@string/label_user_rating"
-            android:textColor="@color/colorMediumGray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_toRightOf="@id/details_movie_poster_iv"
-            android:layout_below="@id/label_release_date_tv"/>
+            <TextView
+                android:id="@+id/value_user_rating_tv"
+                style="@style/MovieDetailsStyleSmallText"
+                android:layout_toRightOf="@id/label_user_rating_tv"
+                android:layout_below="@id/label_release_date_tv"
+                android:layout_toEndOf="@id/label_user_rating_tv" />
 
-        <TextView
-            android:id="@+id/value_user_rating_tv"
-            android:textColor="@color/colorWhite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_toRightOf="@id/label_user_rating_tv"
-            android:layout_below="@id/label_release_date_tv"/>
+            <!--Synopsis-->
+            <TextView
+                android:id="@+id/value_overview_tv"
+                tools:text="@string/movie_details_synopsis_placeholder"
+                style="@style/MovieDetailsStyleSmallText"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
+                android:layout_below="@id/details_movie_poster_iv" />
 
-        <!--This View serves as a visual divider between Title to Details to Overview-->
-        <View
-            android:id="@+id/title_divider2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorMediumGray"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_below="@id/details_movie_poster_iv"/>
+            <!--This View serves as a visual divider between Title to Details to Overview-->
+            <View
+                android:id="@+id/title_divider_trailers"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorMediumGray"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_below="@id/value_overview_tv"/>
 
-        <!--Synopsis-->
-        <TextView
-            android:id="@+id/label_overview_tv"
-            android:text="@string/label_overview"
-            android:textColor="@color/colorMediumGray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_below="@id/title_divider2"/>
 
-        <TextView
-            android:id="@+id/value_overview_tv"
-            android:textColor="@color/colorWhite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_below="@id/label_overview_tv"/>
+            <!--Trailers-->
+            <TextView
+                android:id="@+id/trailers_label_tv"
+                android:text="@string/movie_details_trailers_label"
+                android:textColor="@color/textColorBlack"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
+                style="@style/MovieDetailsStyleMediumText"
+                android:layout_below="@id/title_divider_trailers" />
+
+            <ListView
+                android:id="@+id/trailers_list_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/trailers_label_tv"
+                tools:ignore="NestedScrolling" />
+
+            <!--This View serves as a visual divider between Title to Details to Overview-->
+            <View
+                android:id="@+id/title_divider_reviews"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorMediumGray"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_below="@id/trailers_list_lv"/>
+
+            <!--Reviews-->
+            <TextView
+                android:id="@+id/reviews_label_tv"
+                android:text="@string/movie_details_reviews_label"
+                android:textColor="@color/textColorBlack"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
+                style="@style/MovieDetailsStyleMediumText"
+                android:layout_below="@id/title_divider_reviews" />
+
+            <ListView
+                android:id="@+id/reviews_list_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reviews_label_tv"
+                tools:ignore="NestedScrolling" />
+
         </RelativeLayout>
 
     </ScrollView>

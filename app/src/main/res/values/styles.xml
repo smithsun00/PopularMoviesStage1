@@ -8,4 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BaseMovieDetailsStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="MovieDetailsStyleSmallText" parent="BaseMovieDetailsStyle">
+        <item name="android:textColor">@color/textColorBlack</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="MovieDetailsStyleMediumText" parent="BaseMovieDetailsStyle">
+        <item name="android:textColor">@color/textColorBlack</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

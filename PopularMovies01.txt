@@ -1,5 +1,5 @@
 
-	PopularMives01
+	PopularMovies01
 	Instruction
 	
 	1. Please replace 'API_KEY' in NetworkUtils with your own public API key.
